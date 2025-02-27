@@ -1,4 +1,4 @@
-// Navbar componet used and AIODYSSEY title
+// Navbar componet used and AIODYSSEY
 
 export default function Navbar() {
   return (
