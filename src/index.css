@@ -1,0 +1,36 @@
+body {
+  margin: 0;
+}
+
+/*Loading Font   */
+@font-face {
+  font-family: "Origin Tech Demo";
+  src: url("/src/assets/origin-tech-demo/OriginTech-personal-use.eot");
+  src: url("/src/assets/origin-tech-demo/OriginTech personal use.woff")
+      format("woff"),
+    url("/src/assets/origin-tech-demo/OriginTech personal use.otf")
+      format("opentype"),
+    url("/src/assets/origin-tech-demo/OriginTech personal use.svg")
+      format("svg");
+}
+
+/* adding css to navbar login */
+.navbar-login {
+  margin-top: 0;
+  background-color: #efeefc;
+  height: 6.563rem;
+  position: relative;
+}
+
+/* Adding css to font inside of navbar */
+.navbar-login > span {
+  display: flex;
+  color: #000000;
+  justify-content: center;
+  align-items: center;
+  height: 6.563rem;
+  font-family: Origin Tech Demo;
+  font-weight: 500;
+  font-size: 2.732rem;
+  line-height: 2.549rem;
+}
