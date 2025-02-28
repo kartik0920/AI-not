@@ -1,13 +1,15 @@
 import Navbar from "./assets/components/navbar";
-import SigninBox from "./assets/components/SignInBox";
+import SignIn from "./assets/components/SignIn";
+import './App.css'
+import AIorNot from "./assets/components/AIorNot";
 
 function App() {
   return (
     <>
       {/* use for nav bar in siginPage */}
-      <Navbar />
-      <h1 className="title-signin">AI or NOT</h1>
-      <SigninBox />
+      <Navbar /> {/* fixed */}
+      <AIorNot/> {/* fixed */}
+      <SignIn/>  {/* changing */}
     </>
   );
 }
