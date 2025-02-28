@@ -1,6 +1,6 @@
-import Navbar from "../assets/components/navbar";
-import AIorNot from "../assets/components/AIorNot";
-import SignIn from "../assets/components/SignIn";
+import Navbar from "/src/assets/components/navbar";
+import AIorNot from "/src/assets/components/AIorNot";
+import SignIn from "/src/assets/components/SignIn";
 
 export default function SignInPage({ setToken }) {
   return (
