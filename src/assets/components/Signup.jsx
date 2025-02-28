@@ -1,15 +1,16 @@
 import React, { useEffect, useState } from "react";
-import { redirect, Router, useNavigate } from "react-router-dom";
+// import { Link } from 'react-router-dom';
 import googleLogo from "../resources/googleLogo.svg";
 import CircularComponent from "./CircularComponent";
 
 // supabase backend
 import { supabase } from "../../client";
-import { Navigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
-export default function SignInPage({ setToken }) {
+export default function SignUp() {
   let navigate = useNavigate();
   const [formData, setFormdata] = useState({
+    teamname: "",
     email: "",
     password: "",
   });
@@ -24,44 +25,25 @@ export default function SignInPage({ setToken }) {
     });
   }
 
-  async function googleSignin(e) {
-    e.preventDefault();
-    try {
-      const { data, error } = await supabase.auth.signInWithOAuth({
-        provider: "google",
-        options: {
-          queryParams: {
-            access_type: "offline",
-            prompt: "consent",
-          },
-        },
-      });
-
-      if (error) throw error;
-
-      // navigate("/home");
-    } catch (error) {
-      alert(error);
-    }
-  }
-
   async function handleSubmit(e) {
     e.preventDefault();
     try {
-      const { data, error } = await supabase.auth.signInWithPassword({
+      const { data, error } = await supabase.auth.signUp({
         email: formData.email,
         password: formData.password,
+        options: {
+          data: {
+            teamname: formData.teamname,
+          },
+        },
       });
-
+      navigate("/");
       if (error) {
-        alert("Enter Correct username or password");
         throw error;
       }
-      if (data) {
-        setToken(data);
-        navigate("home");
-      }
-    } catch (error) {}
+    } catch (error) {
+      alert(error);
+    }
   }
 
   return (
@@ -70,10 +52,21 @@ export default function SignInPage({ setToken }) {
 
       <div className="signInContainer">
         <div className="signInHead">
-          <h2>Sign In</h2>
+          <h2>Sign Up</h2>
         </div>
 
         <form action="">
+          <div className="input-div team-name-input">
+            <label htmlFor="team-name">Team Name</label>
+            <input
+              type="text"
+              id="team-name"
+              name="teamname"
+              onChange={handlechange}
+              placeholder="Enter your team name"
+            />
+          </div>
+
           <div className="input-div email-input">
             <label htmlFor="email">Email</label>
             <input
@@ -92,30 +85,17 @@ export default function SignInPage({ setToken }) {
               type="password"
               id="password"
               name="password"
-              placeholder="********"
+              placeholder="******"
               required
             />
           </div>
 
           <button className="getOtpButton" onClick={handleSubmit}>
-            Sign In
+            Sign Up
           </button>
-        </form>
-        <form>
-          <div className="or-container">
-            <div className="line"></div>
-            <span className="or-text">OR</span>
-            <div className="line"></div>
-          </div>
-
-          <button className="google-signin-btn" onClick={googleSignin}>
-            <img src={googleLogo} alt="Google Logo" className="google-logo" />
-            Sign In With Google
-          </button>
-
-          <div className="signup-option">
+          <div classname="signup-option">
             <p>
-              Don't have an account? <a href="/signup">Sign Up</a>
+              Already have account? <a href="/">Sign In</a>
             </p>
           </div>
         </form>
