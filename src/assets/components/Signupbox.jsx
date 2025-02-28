@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 // import { Link } from 'react-router-dom';
-import googleLogo from "../resources/googleLogo.svg";
 import CircularComponent from "./CircularComponent";
 
 // supabase backend
@@ -28,7 +27,7 @@ export default function SignUp() {
   async function handleSubmit(e) {
     e.preventDefault();
     try {
-      const { data, error } = await supabase.auth.signUp({
+      const { error } = await supabase.auth.signUp({
         email: formData.email,
         password: formData.password,
         options: {
