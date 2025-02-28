@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { redirect, Router, useNavigate } from "react-router-dom";
+import React, { useState } from "react";
+import { Router, useNavigate } from "react-router-dom";
 import googleLogo from "../resources/googleLogo.svg";
 import CircularComponent from "./CircularComponent";
 
@@ -27,7 +27,7 @@ export default function SignInPage({ setToken }) {
   async function googleSignin(e) {
     e.preventDefault();
     try {
-      const { data, error } = await supabase.auth.signInWithOAuth({
+      const { error } = await supabase.auth.signInWithOAuth({
         provider: "google",
         options: {
           queryParams: {
@@ -61,6 +61,7 @@ export default function SignInPage({ setToken }) {
         setToken(data);
         navigate("home");
       }
+      // eslint-disable-next-line no-unused-vars, no-empty
     } catch (error) {}
   }
 
