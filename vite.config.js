@@ -4,9 +4,10 @@ import react from "@vitejs/plugin-react";
 export default defineConfig({
   plugins: [react()],
   build: {
+    outDir: "dist",
     rollupOptions: {
       external: [], // Explicitly externalize it
     },
   },
-  // base: process.env.NODE_ENV === 'production' ? '/your-app/' : '/',
+  base: "./",
 });
