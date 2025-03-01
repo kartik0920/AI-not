@@ -9,5 +9,5 @@ export default defineConfig({
       external: [], // Explicitly externalize it
     },
   },
-  base: "./",
+  base: "/",
 });
