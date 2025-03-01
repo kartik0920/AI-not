@@ -61,14 +61,9 @@ export default function SignInPage({ setToken }) {
         setToken(data);
         navigate("home");
       }
-<<<<<<< HEAD
-      // eslint-disable-next-line no-unused-vars, no-empty
-    } catch (error) {}
-=======
     } catch (e) {
       alert(e);
     }
->>>>>>> kartik
   }
 
   return (
