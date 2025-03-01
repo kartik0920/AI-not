@@ -1,6 +1,6 @@
 import Navbar from "../assets/components/Navbar";
 import AIorNot from "../assets/components/AIorNot";
-import SignUp from "../assets/components/SignUp";
+import SignUp from "../assets/components/Signup";
 
 export default function SignUpPage() {
   return (
