@@ -10,10 +10,10 @@ export default function Home({ token }) {
     navigate("/");
   }
 
-  // let teamname = token.session.user.user_metadata.teamname;
+  let teamname = token.session.user.user_metadata.teamname;
   return (
     <>
-      <h1>Welcome to homescreen @</h1>
+      <h1>Welcome to homescreen @{teamname}</h1>
 
       <button onClick={handleLogout}>Logout</button>
     </>
