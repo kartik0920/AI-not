@@ -1,19 +1,16 @@
+import { dirname, resolve } from "node:path";
+import { fileURLToPath } from "node:url";
 import { defineConfig } from "vite";
-import react from "@vitejs/plugin-react";
-import path from "path";
 
-// https://vite.dev/config/
+const __dirname = dirname(fileURLToPath(import.meta.url));
+
 export default defineConfig({
-  plugins: [react()],
-  resolve: {
-    alias: {
-      "@": path.resolve(__dirname, "./src"),
-      "@tests": path.resolve(__dirname, "./tests"),
-    },
-  },
   build: {
     rollupOptions: {
-      external: [/^node:.*/],
+      input: {
+        main: resolve(__dirname, "index.html"),
+        nested: resolve(__dirname, "nested/index.html"),
+      },
     },
   },
 });
