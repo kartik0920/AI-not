@@ -8,4 +8,5 @@ export default defineConfig({
       external: [], // Explicitly externalize it
     },
   },
+  // base: process.env.NODE_ENV === 'production' ? '/your-app/' : '/',
 });
