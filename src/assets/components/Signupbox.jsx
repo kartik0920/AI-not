@@ -1,5 +1,9 @@
 import React, { useState } from "react";
 // import { Link } from 'react-router-dom';
+<<<<<<< HEAD:src/assets/components/Signupbox.jsx
+=======
+
+>>>>>>> kartik:src/assets/components/Signup.jsx
 import CircularComponent from "./CircularComponent";
 
 // supabase backend
